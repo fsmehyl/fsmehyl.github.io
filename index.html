@@ -1,10 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
+
 <head>
-    <title>Stránka s modrým pozadím</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filip Šmehyl</title>
+    <style>
+        :root {
+            --primary: #6dd5ed;
+            --secondary: #764ba2;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            margin: 0 0 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .keyword {
+            color: #6dd5ed;
+        }
+
+        .type {
+            color: #f78fb3;
+        }
+
+        .string {
+            color: #55efc4;
+        }
+
+        .number {
+            color: #ffeaa7;
+        }
+
+        .comment {
+            color: #636e72;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-link {
+            color: #6dd5ed;
+            /* Matching your gradient color */
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .code-link:hover {
+            color: #55efc4;
+            /* Lighter accent color */
+            text-decoration: underline;
+        }
+
+        .pasture {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        
+
+        .sheep-herd {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .sheep {
+            display: inline-block;
+            background: rgb(0, 0, 0);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-family: 'Comic Sans MS', cursive;
+            position: relative;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            animation: graze 8s infinite ease-in-out;
+        }
+
+
+        /* Random grazing animation */
+        @keyframes graze {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            25% {
+                transform: translateY(-5px) translateX(5px);
+            }
+
+            50% {
+                transform: translateY(0) translateX(10px);
+            }
+
+            75% {
+                transform: translateY(5px) translateX(-5px);
+            }
+        }
+
+        /* Different animation delays for each sheep */
+        .sheep:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .sheep:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .sheep:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .sheep:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .sheep:nth-child(5) {
+            animation-delay: 0.2s;
+        }
+
+        .sheep:nth-child(6) {
+            animation-delay: 0.7s;
+        }
+
+        .sheep:nth-child(7) {
+            animation-delay: 1.2s;
+        }
+
+        .sheep:nth-child(8) {
+            animation-delay: 1.7s;
+        }
+
+        .sheep:nth-child(9) {
+            animation-delay: 0.3s;
+        }
+
+        .sheep:nth-child(10) {
+            animation-delay: 0.8s;
+        }
+
+        .sheep:nth-child(11) {
+            animation-delay: 1.3s;
+        }
+
+        .experience-card {
+    display: flex;
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-card.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.card-image {
+    flex: 0 0 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.card-content {
+    flex: 1;
+    padding: 25px;
+    color: white;
+}
+
+.date {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #6dd5ed;
+}
+
+.position {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.keyword {
+    color: #6dd5ed;
+    font-weight: 600;
+}
+
+.code-link {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dashed #6dd5ed;
+    transition: all 0.3s ease;
+}
+
+.code-link:hover {
+    color: #6dd5ed;
+    border-bottom-style: solid;
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+    .experience-card {
+        flex-direction: column;
+    }
+    
+    .card-image {
+        flex: 0 0 auto;
+        padding: 15px;
+    }
+}
+    </style>
+    
 </head>
+
 <body>
-    <h1>Vitajte na mojej stránke!</h1>
-    <p>Toto je jednoduchá HTML stránka s modrým pozadím.</p>
+    <div class="card">
+        <img src="images/foto.jpg" alt="Filip Šmehyl" class="profile-pic">
+        <h2>FILIP ŠMEHYL</h2>
+
+        <div class="code-block">
+            <span class="keyword">class</span> <span class="type">Person</span> {<br>
+            &nbsp;&nbsp;<span class="type">String</span> fullName;<br>
+            &nbsp;&nbsp;<span class="type">String</span> location;<br>
+            &nbsp;&nbsp;<span class="type">int</span> age;<br>
+            }<br><br>
+
+            <span class="type">Person</span>(<span class="keyword">this</span>.fullName, <span
+                class="keyword">this</span>.location, <span class="keyword">this</span>.age);<br><br>
+
+            <span class="keyword">void</span> introduceMe() {<br>
+            &nbsp;&nbsp;<span class="type">print</span>(<span class="string">"Hi, my name is $fullName, I am $age years
+                old and I live in $location. I'm focused on delivering results through code that matters. Where others
+                see problems, I see solutions waiting to be built."</span>);<br>
+            }<br><br>
+
+            <span class="keyword">void</span> main() {<br>
+            &nbsp;&nbsp;<span class="keyword">final</span> filip = <span class="type">Person</span>(<span
+                class="string">"Filip Šmehyl"</span>, <span class="string">"Bratislava, Slovakia"</span>, <span
+                class="number">25</span>);<br>
+            &nbsp;&nbsp;filip.introduceMe();<br>
+            }
+        </div>
+
+        <p>{..<br>
+            <a href="your-resume.pdf" class="code-link"><b>-->RESUME;<--</b></a><br>
+            ..}
+        </p>
+
+        <h2>SKILLS</h2>
+        <hr>
+
+        <div class="pasture">
+            
+            <div class="sheep-herd">
+                <span class="sheep">Flutter</span>
+                <span class="sheep">Python</span>
+                <span class="sheep">C++</span>
+                <span class="sheep">HTML</span>
+                <span class="sheep">CSS</span>
+                <span class="sheep">SQL</span>
+                <span class="sheep">Git</span>
+                <span class="sheep">WordPress</span>
+                <span class="sheep">Bulma</span>
+                <span class="sheep">Blender</span>
+                <span class="sheep">UML</span>
+                <span class="sheep">Figma</span>
+                <span class="sheep">UML-based framework (FSPL)</span>
+            </div>
+            
+        </div>
+         <h2>EXPERIENCE</h2>
+        <hr>
+        <div class="experience-card">
+    <div class="card-image">
+        <img src="images/vub.png" alt="VÚB BANKA">
+    </div>
+    <div class="card-content">
+        <p class="date">June 2024 - May 2025</p>
+        <p class="position"><span class="keyword">Support Specialist</span> at <a href="https://www.vub.sk/" class="code-link">VÚB BANKA</a></p>
+    </div>
+    </div>
+    
+
+
+    <div class="experience-card">
+    <div class="card-image">
+        <img src="images/ka.png" alt="KARVINÁ AIKIDO">
+    </div>
+    <div class="card-content">
+        <p class="date">February 2022 - June 2022</p>
+        <p class="position"><span class="keyword">Freelance Project</span> [web development]:<br><a href="https://www.aikido-karvina.cz/" class="code-link">AIKIDO KARVINÁ</a></p>
+    </div>
+</div>
+
+<br><br>
+<h2>PROJECTS</h2>
+        <hr>
+<div class="experience-card">
+    <div class="card-image">
+        <img src="images/ucm.webp" alt="UCM">
+    </div>
+    <div class="card-content">
+        <p class="date">September 2022 - May 2025</p>
+        <p class="position"><span class="keyword">University Student</span> at <a href="https://upti.fpv.ucm.sk/" class="code-link">ÚPTI</a><br>BACHELOR STUDY</p>
+    </div>
+</div>
+
+<br><br>
+<h2>EDUCATION</h2>
+        <hr>
+<div class="experience-card">
+    <div class="card-image">
+        <img src="images/ucm.webp" alt="UCM">
+    </div>
+    <div class="card-content">
+        <p class="date">September 2022 - May 2025</p>
+        <p class="position"><span class="keyword">University Student</span> at <a href="https://upti.fpv.ucm.sk/" class="code-link">ÚPTI</a><br>BACHELOR STUDY</p>
+    </div>
+</div>
+
+
+
+<script>
+// Enhanced scroll animation trigger
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Scrolling down - slide in
+            entry.target.classList.add('visible');
+            entry.target.classList.remove('hidden');
+        } else {
+            // Scrolling up - slide out
+            entry.target.classList.add('hidden');
+            entry.target.classList.remove('visible');
+        }
+    });
+}, {threshold: 0.5});
+
+document.querySelectorAll('.experience-card').forEach(card => {
+    observer.observe(card);
+});
+</script>
 </body>
+
 </html>

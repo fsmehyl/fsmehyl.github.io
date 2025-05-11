@@ -1,8 +1,107 @@
 body {
-            background-color: blue;
-            color: white; /* Biela farba textu pre lepšiu čitateľnosť */
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
+ margin: 0;
+    height: 100vh;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
 
+    /* Definovanie gradientu s viacerými farbami pre plynulý prechod */
+    /* Poradie farieb je dôležité pre efekt "striedania" */
+    background: linear-gradient(135deg, #6dd5ed, #764ba2, #667eea, #764ba2, #6dd5ed);
+    /* #6dd5ed - svetlomodrá */
+    /* #764ba2 - stredne fialová */
+    /* #667eea - modrá */
+
+    background-size: 400% 400%; /* Veľkosť gradientu - musí byť väčšia ako element */
+
+    animation: gradientAnimation 30s ease infinite;
+    /* Názov animácie: gradientAnimation */
+    /* Trvanie: 15 sekúnd */
+    /* Priebeh animácie: ease (pomalý začiatok a koniec) */
+    /* Opakovanie: infinite (nekonečné) */
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%; /* Začiatočná pozícia gradientu */
+    }
+    50% {
+      background-position: 100% 50%; /* Stredná pozícia gradientu */
+    }
+    100% {
+      background-position: 0% 50%; /* Návrat na začiatočnú pozíciu pre plynulé opakovanie */
+    }
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* medzera medzi obrázkom a textom */
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.profile-image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Kruhový tvar */
+    overflow: hidden;
+    border: 5px solid #ffffff; /* Biely rámček */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ľahký tieň */
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.code-image-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.code-image {
+    width: 600px; /* Increased from 400px */
+    max-width: 90%; /* Adjusted for responsiveness */
+    border-radius: 12px; /* Slightly larger radius */
+    border: 4px solid white; /* Thicker border */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    transition: transform 0.3s ease;
+}
+
+.code-image:hover {
+    transform: scale(1.05); /* Slightly more pronounced hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .profile-image-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .code-image {
+        width: 90%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+    .code-image {
+        border-width: 3px;
+        border-radius: 8px;
+    }
+}
