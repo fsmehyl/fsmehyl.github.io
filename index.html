@@ -419,6 +419,22 @@ video {
     width: 100%;
     border-radius: 8px;
 }
+
+.contact {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+
+.git_img,
+.mobile,
+.gmail_img,
+.ll_img {
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    transition: all 0.3s ease;
+}
     </style>
 
 </head>
@@ -452,8 +468,10 @@ video {
             }
         </div>
 
+        
+
         <p>{..<br>
-            <a href="docs/Smehyl_FIlip_resume.pdf" class="code-link"><b>-->RESUME;<--</b></a><br>
+            <a href="docs/Smehyl_FIlip_resume.pdf" class="code-link" target="_blank"><b>-->RESUME;<--</b></a><br>
             ..}
         </p>
 
@@ -654,6 +672,12 @@ document.getElementById('video-popup').onclick = function(e) {
 
         <footer>
             <p>© 2025 Filip Šmehyl</p>
+            <div class="contact">
+            <a href="TEL:+421903852342" ><img src="images/mobile.png" alt="mobile" class="mobile"></a><br>
+            <a href="mailto:filip.smehyl20@gmail.com"><img src="images/gmail_logo.png" alt="gmail_logo" class="gmail_img"></a><br>
+            <a href="https://github.com/fsmehyl"><img src="images/github_logo.png" alt="github_logo" class="git_img"></a><br>
+            <a href="https://www.linkedin.com/in/filip-%C5%A1mehyl-132aa0226/" ><img src="images/ll.png" alt="linkedin_logo" class="ll_img"></a><br>
+            </div>
         </footer>
 </body>
 
