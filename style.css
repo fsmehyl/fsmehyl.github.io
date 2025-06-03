@@ -211,7 +211,35 @@
         }
 
         .sheep:nth-child(11) {
-            animation-delay: 1.3s;
+            animation-delay: 1.4s;
+        }
+
+        .sheep:nth-child(12) {
+            animation-delay: 1.2s;
+        }
+
+        .sheep:nth-child(13) {
+            animation-delay: 0.3s;
+        }
+
+        .sheep:nth-child(14) {
+            animation-delay: 1.0s;
+        }
+
+        .sheep:nth-child(15) {
+            animation-delay: 1.9s;
+        }
+
+        .sheep:nth-child(16) {
+            animation-delay: 0.9s;
+        }
+
+        .sheep:nth-child(17) {
+            animation-delay: 0.7s;
+        }
+
+        .sheep:nth-child(18) {
+            animation-delay: 0.2s;
         }
 
         .experience-card {
